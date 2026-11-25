@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoImproved</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#14171c;color:#edf0f4}
+    *{box-sizing:border-box}
+    body{width:300px;max-height:500px;margin:0;overflow-y:auto;background:#14171c;font-size:14px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #252a32}
+    h1{margin:0;font-size:18px;font-weight:700}
+    header p{margin:1px 0 0;color:#9ea8b5;font-size:12px}
+    .version{color:#8f9aaa;font-size:12px}
+    main{padding:0 10px 5px}
+    .group{padding:6px 0;border-bottom:1px solid #252a32}
+    h2{margin:0 0 2px;color:#aab4c1;font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}
+    .setting{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:27px;padding:2px 0;cursor:pointer}
+    .setting strong,.feature-row strong{display:block;font-size:14px;font-weight:550}
+    .setting small{display:block;max-width:270px;margin-top:1px;color:#98a3b1;font-size:12px;line-height:1.25}
+    input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:#8ba9d4;flex:0 0 auto}
+    .hint{margin:2px 0 0;color:#8e99a8;font-size:12px;line-height:1.3}
+    .feature-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .state{flex:0 0 auto;color:#a8c5a8;font-size:12px}
+    button{color:#f2f4f7;border:0;cursor:pointer;font:inherit}
+    .text-button{padding:2px 0;color:#a8bddb;background:transparent;font-size:12px}
+    .text-button:hover{color:#d4e2f5}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px 8px;color:#7f8a98;font-size:11px}
+    #sidebarButtonOptions{margin-top:2px}
+    #sidebarButtonOptions summary{padding:3px 0;color:#a8bddb;cursor:pointer;font-size:12px}
+    #sidebarButtonList{display:grid;grid-template-columns:1fr 1fr;gap:0 8px;min-width:0;margin:0;padding:0;border:0}
+    #sidebarButtonList:disabled{opacity:.45}
+    .compact-setting{min-height:23px;padding:1px 0;gap:5px}
+    .compact-setting span{color:#c8d0da;font-size:12px}
+    input:focus-visible,button:focus-visible,summary:focus-visible{outline:1px solid #8ba9d4;outline-offset:1px}
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>RoImproved</h1><p>LOCAL extension</p></div>
+    <span class="version">1.0.1</span>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Page Cleanup</h2>
+      <label class="setting" for="cleanHomePage"><span><strong>Clean Home page</strong><small>Removes unnecessary homepage sections.</small></span><input type="checkbox" id="cleanHomePage"></label>
+      <label class="setting" for="removePageFooter"><span><strong>Remove bottom section</strong><small>Removes Roblox support on the bottom from all pages.</small></span><input type="checkbox" id="removePageFooter"></label>
+    </section>
+    <section class="group">
+      <h2>Game Links</h2>
+      <label class="setting" for="removeLinkParameters"><span><strong>Remove tracking parameters</strong><small>Cleans Roblox links from tracking data.</small></span><input type="checkbox" id="removeLinkParameters"></label>
+    </section>
+    <section class="group">
+      <h2>Sidebar</h2>
+      <label class="setting" for="sidebarEnabled"><span><strong>Minimize sidebar</strong><small>Shows icons only.</small></span><input type="checkbox" id="sidebarEnabled"></label>
+      <label class="setting" for="sidebarButtonsEnabled"><span><strong>Enable button modification</strong><small>Choose which buttons appear.</small></span><input type="checkbox" id="sidebarButtonsEnabled"></label>
+      <details id="sidebarButtonOptions">
+        <summary>Choose which buttons are visible</summary>
+        <fieldset id="sidebarButtonList" class="option-list">
+          <label class="setting compact-setting" for="sidebarButtonProfileCard"><span>Picture</span><input type="checkbox" id="sidebarButtonProfileCard"></label>
+          <label class="setting compact-setting" for="sidebarButtonHome"><span>Home</span><input type="checkbox" id="sidebarButtonHome"></label>
+          <label class="setting compact-setting" for="sidebarButtonProfile"><span>Profile</span><input type="checkbox" id="sidebarButtonProfile"></label>
+          <label class="setting compact-setting" for="sidebarButtonRobloxPlus"><span>Roblox Plus</span><input type="checkbox" id="sidebarButtonRobloxPlus"></label>
+          <label class="setting compact-setting" for="sidebarButtonMessages"><span>Messages</span><input type="checkbox" id="sidebarButtonMessages"></label>
+          <label class="setting compact-setting" for="sidebarButtonAvatar"><span>Avatar</span><input type="checkbox" id="sidebarButtonAvatar"></label>
+          <label class="setting compact-setting" for="sidebarButtonInventory"><span>Inventory</span><input type="checkbox" id="sidebarButtonInventory"></label>
+          <label class="setting compact-setting" for="sidebarButtonTrade"><span>Trade</span><input type="checkbox" id="sidebarButtonTrade"></label>
+          <label class="setting compact-setting" for="sidebarButtonCommunities"><span>Communities</span><input type="checkbox" id="sidebarButtonCommunities"></label>
+          <label class="setting compact-setting" for="sidebarButtonNewsroom"><span>Newsroom</span><input type="checkbox" id="sidebarButtonNewsroom"></label>
+          <label class="setting compact-setting" for="sidebarButtonOfficialStore"><span>Official Store</span><input type="checkbox" id="sidebarButtonOfficialStore"></label>
+          <label class="setting compact-setting" for="sidebarButtonGiftCards"><span>Buy Gift Cards</span><input type="checkbox" id="sidebarButtonGiftCards"></label>
+          <label class="setting compact-setting" for="sidebarButtonPlusPromo"><span>Roblox Plus promotion</span><input type="checkbox" id="sidebarButtonPlusPromo"></label>
+        </fieldset>
+      </details>
+    </section>
+    <section class="group">
+      <h2>Game Cards</h2>
+      <label class="setting" for="gameQuickJoinEnabled"><span><strong>Quick Join</strong><small>Shows quick join button on home games.</small></span><input type="checkbox" id="gameQuickJoinEnabled"></label>
+      <label class="setting" for="gameServerListsEnabled"><span><strong>Public &amp; private server lists</strong><small>Shows the server list buttons on home games.</small></span><input type="checkbox" id="gameServerListsEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Account Controls</h2>
+      <label class="setting" for="privacyControlsEnabled"><span><strong>Inventory and status controls</strong><small>Shows the inventory and status settings in top bar.</small></span><input type="checkbox" id="privacyControlsEnabled"></label>
+      <label class="setting" for="voiceChatStatusEnabled"><span><strong>Voice chat status</strong><small>Shows the voice chat status indicator in top bar.</small></span><input type="checkbox" id="voiceChatStatusEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Profile</h2>
+      <label class="setting" for="profileOutfitsEnabled"><span><strong>Outfits button</strong><small>Adds a button in profiles to view outfits.</small></span><input type="checkbox" id="profileOutfitsEnabled"></label>
+      <label class="setting" for="badgeSortingEnabled"><span><strong>Badge sorting</strong><small>Inventory badges: newest first, 100 per page with page numbers.</small></span><input type="checkbox" id="badgeSortingEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Transactions</h2>
+      <label class="setting" for="transactionCounterEnabled"><span><strong>Transactions scanner</strong><small>Adds a button to scan purchases or earned robux.</small></span><input type="checkbox" id="transactionCounterEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Avatar Editor</h2>
+      <label class="setting" for="accessoryLimitEnabled"><span><strong>Accessory limit</strong><small>Increase limit of accessories to 10.</small></span><input type="checkbox" id="accessoryLimitEnabled"></label>
+    </section>
+  </main>
+  <footer>
+    <span id="saveStatus" aria-live="polite">Settings are local.</span>
+    <button id="resetSettings" type="button" class="text-button">Reset settings</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

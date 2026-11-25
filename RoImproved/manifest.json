@@ -1,0 +1,139 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "111",
+  "name": "RoImproved",
+  "short_name": "RoImproved",
+  "version": "1.0.1",
+  "description": "A small extension that improves roblox website experience.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://www.roblox.com/*",
+    "https://avatar.roblox.com/*",
+    "https://thumbnails.roblox.com/*",
+    "https://apis.roblox.com/*",
+    "https://users.roblox.com/*",
+    "https://voice.roblox.com/*",
+    "https://games.roblox.com/*",
+    "https://badges.roblox.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "RoImproved",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.roblox.com/*"
+      ],
+      "js": [
+        "home-feed-filter.js",
+        "profile-route-bridge.js",
+        "voice-chat-watch-main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/my/avatar*",
+        "https://www.roblox.com/*/my/avatar*"
+      ],
+      "js": [
+        "accessory-limit.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/*"
+      ],
+      "js": [
+        "route-feature-loader.js",
+        "sidebar-collapse.js",
+        "page-footer-removal.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/",
+        "https://www.roblox.com/home*",
+        "https://www.roblox.com/*/home*"
+      ],
+      "js": [
+        "home-feed-bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/",
+        "https://www.roblox.com/home*",
+        "https://www.roblox.com/*/home*",
+        "https://www.roblox.com/charts*",
+        "https://www.roblox.com/*/charts*"
+      ],
+      "js": [
+        "home-chart-links.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/users/*/profile*",
+        "https://www.roblox.com/*/users/*/profile*"
+      ],
+      "js": [
+        "outfits-gallery.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/transactions*",
+        "https://www.roblox.com/*/transactions*"
+      ],
+      "js": [
+        "transaction-counter.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/",
+        "https://www.roblox.com/home*",
+        "https://www.roblox.com/*/home*"
+      ],
+      "js": [
+        "home-game-actions.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://www.roblox.com/users/inventory*",
+        "https://www.roblox.com/users/*/inventory*",
+        "https://www.roblox.com/*/users/inventory*",
+        "https://www.roblox.com/*/users/*/inventory*"
+      ],
+      "js": [
+        "badge-sorting.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

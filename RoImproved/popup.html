@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoImproved</title>
+  <style>:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#14171c;color:#edf0f4}*{box-sizing:border-box}body{width:300px;max-height:500px;margin:0;overflow-y:auto;background:#14171c;font-size:14px}header{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #252a32}h1{margin:0;font-size:18px;font-weight:700}header p{margin:1px 0 0;color:#9ea8b5;font-size:12px}.version{color:#8f9aaa;font-size:12px}main{padding:0 10px 5px}.group{padding:6px 0;border-bottom:1px solid #252a32}h2{margin:0 0 2px;color:#aab4c1;font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}.setting{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:27px;padding:2px 0;cursor:pointer}.setting strong,.feature-row strong{display:block;font-size:14px;font-weight:550}.setting small{display:block;max-width:270px;margin-top:1px;color:#98a3b1;font-size:12px;line-height:1.25}input[type=checkbox]{width:14px;height:14px;margin:0;accent-color:#8ba9d4;flex:0 0 auto}.hint{margin:2px 0 0;color:#8e99a8;font-size:12px;line-height:1.3}.feature-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.state{flex:0 0 auto;color:#a8c5a8;font-size:12px}button{color:#f2f4f7;border:0;cursor:pointer;font:inherit}.text-button{padding:2px 0;color:#a8bddb;background:transparent;font-size:12px}.text-button:hover{color:#d4e2f5}footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px 8px;color:#7f8a98;font-size:11px}#sidebarButtonOptions{margin-top:2px}#sidebarButtonOptions summary{padding:3px 0;color:#a8bddb;cursor:pointer;font-size:12px}#sidebarButtonList{display:grid;grid-template-columns:1fr 1fr;gap:0 8px;min-width:0;margin:0;padding:0;border:0}#sidebarButtonList:disabled{opacity:.45}.compact-setting{min-height:23px;padding:1px 0;gap:5px}.compact-setting span{color:#c8d0da;font-size:12px}input:focus-visible,button:focus-visible,summary:focus-visible{outline:1px solid #8ba9d4;outline-offset:1px}.key-config{padding:4px 0 2px}.key-config p{margin:3px 0 6px;color:#98a3b1;font-size:11px;line-height:1.35}.key-config input{display:block;width:100%;height:29px;padding:4px 7px;border:1px solid #343c48;border-radius:5px;background:#0f1217;color:#edf0f4;font:12px system-ui}.key-config .key-remember{display:flex;align-items:center;gap:6px;margin-top:7px;color:#b6c0cd;font-size:11px}.key-config .key-remember input{display:inline-block;flex:0 0 auto;width:13px;height:13px;margin:0;padding:0}.key-actions{display:flex;align-items:center;gap:7px;margin-top:6px}.key-actions button{padding:4px 8px;border:1px solid #343c48;border-radius:5px;background:#222934;font-size:11px}.key-status{margin-top:4px;color:#9fbea4;font-size:11px}.key-preview{display:flex;align-items:center;gap:8px;margin-top:6px}.key-preview[hidden]{display:none}.key-preview img{width:56px;height:56px;border-radius:8px;object-fit:cover;background:#262b34}.key-preview span{color:#aeb8c6;font-size:11px;line-height:1.3}</style>
+</head>
+<body>
+  <header>
+    <div><h1>RoImproved</h1><p>LOCAL extension</p></div>
+    <span class="version">1.2</span>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Page Cleanup</h2>
+      <label class="setting" for="cleanHomePage"><span><strong>Clean Home page</strong><small>Removes unnecessary homepage sections.</small></span><input type="checkbox" id="cleanHomePage"></label>
+      <label class="setting" for="removePageFooter"><span><strong>Remove bottom section</strong><small>Removes Roblox support on the bottom from all pages.</small></span><input type="checkbox" id="removePageFooter"></label>
+    </section>
+    <section class="group">
+      <h2>Game Links</h2>
+      <label class="setting" for="removeLinkParameters"><span><strong>Remove tracking parameters</strong><small>Cleans Roblox links from tracking data.</small></span><input type="checkbox" id="removeLinkParameters"></label>
+    </section>
+    <section class="group">
+      <h2>Search</h2>
+      <label class="setting" for="deletedUserSearchEnabled"><span><strong>User search</strong><small>Finds active and banned accounts; shows display name, @username and ID immediately, then adds BANNED when confirmed.</small></span><input type="checkbox" id="deletedUserSearchEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Sidebar</h2>
+      <label class="setting" for="sidebarEnabled"><span><strong>Minimize sidebar</strong><small>Shows icons only.</small></span><input type="checkbox" id="sidebarEnabled"></label>
+      <label class="setting" for="sidebarButtonsEnabled"><span><strong>Enable button modification</strong><small>Choose which buttons appear.</small></span><input type="checkbox" id="sidebarButtonsEnabled"></label>
+      <details id="sidebarButtonOptions">
+        <summary>Choose which buttons are visible</summary>
+        <fieldset id="sidebarButtonList" class="option-list">
+          <label class="setting compact-setting" for="sidebarButtonProfileCard"><span>Picture</span><input type="checkbox" id="sidebarButtonProfileCard"></label>
+          <label class="setting compact-setting" for="sidebarButtonHome"><span>Home</span><input type="checkbox" id="sidebarButtonHome"></label>
+          <label class="setting compact-setting" for="sidebarButtonProfile"><span>Profile</span><input type="checkbox" id="sidebarButtonProfile"></label>
+          <label class="setting compact-setting" for="sidebarButtonRobloxPlus"><span>Roblox Plus</span><input type="checkbox" id="sidebarButtonRobloxPlus"></label>
+          <label class="setting compact-setting" for="sidebarButtonMessages"><span>Messages</span><input type="checkbox" id="sidebarButtonMessages"></label>
+          <label class="setting compact-setting" for="sidebarButtonAvatar"><span>Avatar</span><input type="checkbox" id="sidebarButtonAvatar"></label>
+          <label class="setting compact-setting" for="sidebarButtonInventory"><span>Inventory</span><input type="checkbox" id="sidebarButtonInventory"></label>
+          <label class="setting compact-setting" for="sidebarButtonTrade"><span>Trade</span><input type="checkbox" id="sidebarButtonTrade"></label>
+          <label class="setting compact-setting" for="sidebarButtonCommunities"><span>Communities</span><input type="checkbox" id="sidebarButtonCommunities"></label>
+          <label class="setting compact-setting" for="sidebarButtonNewsroom"><span>Newsroom</span><input type="checkbox" id="sidebarButtonNewsroom"></label>
+          <label class="setting compact-setting" for="sidebarButtonOfficialStore"><span>Official Store</span><input type="checkbox" id="sidebarButtonOfficialStore"></label>
+          <label class="setting compact-setting" for="sidebarButtonGiftCards"><span>Buy Gift Cards</span><input type="checkbox" id="sidebarButtonGiftCards"></label>
+          <label class="setting compact-setting" for="sidebarButtonPlusPromo"><span>Roblox Plus promotion</span><input type="checkbox" id="sidebarButtonPlusPromo"></label>
+        </fieldset>
+      </details>
+    </section>
+    <section class="group">
+      <h2>Game Cards</h2>
+      <label class="setting" for="gameQuickJoinEnabled"><span><strong>Quick Join</strong><small>Shows quick join button on home games.</small></span><input type="checkbox" id="gameQuickJoinEnabled"></label>
+      <label class="setting" for="gameServerListsEnabled"><span><strong>Public &amp; private server lists</strong><small>Shows the server list buttons on home games.</small></span><input type="checkbox" id="gameServerListsEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Account Controls</h2>
+      <label class="setting" for="privacyControlsEnabled"><span><strong>Inventory and status controls</strong><small>Shows the inventory and status settings in top bar.</small></span><input type="checkbox" id="privacyControlsEnabled"></label>
+      <label class="setting" for="voiceChatStatusEnabled"><span><strong>Voice chat status</strong><small>Shows the voice chat status indicator in top bar.</small></span><input type="checkbox" id="voiceChatStatusEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Banned Profile Thumbnails</h2>
+      <details class="key-config" id="thumbnailKeyOptions">
+        <summary>Configure generated thumbnails</summary>
+        <p>Regular accounts use Roblox's public headshot service. For banned or deleted accounts that return blocked thumbnails, Open Cloud generation needs a key. In Creator Dashboard, create a key with the <strong>Thumbnails</strong> API and enable <strong>Generate User Thumbnail</strong> and <strong>Get User Thumbnail Generation Operation</strong>. The key is sent only to apis.roblox.com. Without a key, RoImproved still tries public headshot/bust thumbnails and an avatar-render fallback where Roblox permits it. A removed account may not have an accessible avatar definition. Never share the key or put it in scripts or public repositories.</p>
+        <input id="openCloudThumbnailApiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste Open Cloud API key">
+        <label class="key-remember"><input id="rememberThumbnailApiKey" type="checkbox">Remember this key on this device</label>
+        <div class="key-actions">
+          <button id="saveThumbnailApiKey" type="button">Save API key</button>
+          <button id="clearThumbnailApiKey" type="button">Clear</button>
+          <a href="https://create.roblox.com/dashboard/credentials" target="_blank" rel="noreferrer" class="text-button">Creator Dashboard</a>
+        </div>
+        <input id="thumbnailTestUserId" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="Banned user ID to test (numbers only)">
+        <div class="key-actions">
+          <button id="testThumbnailApiKey" type="button">Test Open Cloud key</button>
+        </div>
+        <div class="key-preview" id="thumbnailTestPreview" hidden><img id="thumbnailTestImage" alt="Generated user thumbnail"><span id="thumbnailTestLabel"></span></div>
+        <div id="thumbnailKeyStatus" class="key-status" aria-live="polite">No API key configured. Public headshots remain enabled; Open Cloud fallback is disabled.</div>
+      </details>
+    </section>
+    <section class="group">
+      <h2>Profile</h2>
+      <label class="setting" for="profileOutfitsEnabled"><span><strong>Outfits button</strong><small>Adds a button in profiles to view outfits.</small></span><input type="checkbox" id="profileOutfitsEnabled"></label>
+      <label class="setting" for="badgeSortingEnabled"><span><strong>Badge sorting</strong><small>Inventory badges: newest first, 100 per page with page numbers.</small></span><input type="checkbox" id="badgeSortingEnabled"></label>
+      <label class="setting" for="favoritePlacesEnabled"><span><strong>Favorite places</strong><small>Favorite games: newest first, 100 per page with game icons and creators.</small></span><input type="checkbox" id="favoritePlacesEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Transactions</h2>
+      <label class="setting" for="transactionCounterEnabled"><span><strong>Transactions scanner</strong><small>Adds a button to scan purchases or earned robux.</small></span><input type="checkbox" id="transactionCounterEnabled"></label>
+    </section>
+    <section class="group">
+      <h2>Avatar Editor</h2>
+      <label class="setting" for="accessoryLimitEnabled"><span><strong>Accessory limit</strong><small>Increase limit of accessories to 10.</small></span><input type="checkbox" id="accessoryLimitEnabled"></label>
+      <label class="setting" for="avatarAccessoryAdjustmentEnabled"><span><strong>Accessory adjustment</strong><small>Loads the accessory transform editor beside Redraw.</small></span><input type="checkbox" id="avatarAccessoryAdjustmentEnabled"></label>
+    </section>
+  </main>
+  <footer>
+    <span id="saveStatus" aria-live="polite">Settings are local.</span>
+    <button id="resetSettings" type="button" class="text-button">Reset settings</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
